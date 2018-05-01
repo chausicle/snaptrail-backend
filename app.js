@@ -13,10 +13,10 @@ app.use(bodyParser.json())
 app.use(cors())
 
 const loginRoute = require("./src/routes/login")
-// const signupRoute = require("./src/routes/signup")
+const signupRoute = require("./src/routes/signup")
 
 app.use("/login", loginRoute)
-// app.use("/signup", signupRoute)
+app.use("/signup", signupRoute)
 
 app.use((err, req, res, next) => {
   const status = err.status || 500
