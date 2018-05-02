@@ -7,7 +7,7 @@ const checkLogin = async (username, password) => {
     .where({ username })
     .first()
 
-  if (!user) return false 
+  if (!user) return false
   else if (bcrypt.compareSync(password, user.password)) return user.id
   else return false
 }

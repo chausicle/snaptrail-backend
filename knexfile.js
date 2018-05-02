@@ -15,6 +15,6 @@ module.exports = {
   },
   test: {
     client: "pg",
-    connection: `${process.env.DATABASE_URL}/${process.env.DATABASE_NAME}`
+    connection: `${process.env.TEST_DATABASE_URL}/${process.env.TEST_DATABASE_NAME}`
   }
 }
