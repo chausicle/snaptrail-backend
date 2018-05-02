@@ -13,7 +13,8 @@ const checkLogin = async (username, password) => {
   } else {
     let jwtpayload = {
       sub: {
-        id: auth
+        id: auth,
+        user: username
       },
       loggedIn: true,
       exp: (Date.now() / 1000) + 10000
