@@ -5,18 +5,29 @@ const createAccount = async (body) => {
   const username = body.username;
   const email = body.email;
   const password = body.password
-  const signupRes = await signup.createAccount(user_image, username, email, password);
+  const usernameRes = await signup.checkUsernameExist(username);
+  const emailRes = await signup.checkEmailExist(email);
 
-  console.log('signup response in model = ', signupRes);
-  if (!signupRes) {
+
+  if (usernameRes) {
     return {
       error: "Bad request",
       status: 400,
-      message: "User already exist"
+      message: "User already exist!"
     }
-  } else {
+  } else if (emailRes){
     return {
-      username: signupRes.username,
+      error: "Bad request",
+      status: 400,
+      message: "Email already exist!"
+    }
+  }
+
+  if (!usernameRes && !emailRes) {
+    const signupRes = await signup.createAccount(user_image, username, email, password);
+    console.log('signup response in model = ', signupRes[0]);
+    return {
+      username: signupRes[0].username,
       message: "Account Created"
     }
   }
