@@ -10,8 +10,8 @@ exports.seed = function(knex, Promise) {
           image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB3MIm6EYD6KCdBLcDHzW1qyQ2ly0R65pIjPseS3gqwGNdvcyi",
           description: "Bernal Heights Park Trail is a 1 mile loop trail located near San Francisco, California that offers scenic views and is good for all skill levels.",
           location: "Bernal Heights Park Trail",
-          latitude: ,
-          longitude:
+          latitude: 37.744385,
+          longitude: -122.417046
         },
         {
           id: 2,
@@ -48,7 +48,7 @@ exports.seed = function(knex, Promise) {
           location: "Cowles Mountain Trail",
           latitude: 32.937199,
           longitude: -117.127174
-        }
+        },
         {
           id: 6,
           user_id: 3,
