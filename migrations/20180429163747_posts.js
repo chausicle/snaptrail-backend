@@ -6,6 +6,9 @@ exports.up = function(knex, Promise) {
     table.string("image_url").notNullable().defaultsTo("")
     table.string("description").notNullable().defaultsTo("")
     table.string("location").notNullable().defaultsTo("")
+    table.integer("latitude").notNullable().defaultsTo(0)
+    table.integer("longitude").notNullable().defaultsTo(0)
+    table.timestamps(true, true)
   })
 };
 
