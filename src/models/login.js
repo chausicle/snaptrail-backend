@@ -1,5 +1,5 @@
-const login = require("../../queries/login")
-const jwt = require("jsonwebtoken")
+const login = require("../../queries/login");
+const jwt = require("jsonwebtoken");
 
 const checkLogin = async (username, password) => {
   const auth = await login.checkLogin(username, password)
