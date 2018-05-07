@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.integer("user_id").notNullable()
     table.foreign("user_id").references("users.id").onDelete("CASCADE")
     table.string("image_url").notNullable().defaultsTo("")
-    table.string("description", 300).notNullable().defaultsTo("")
+    table.string("description", 1000).notNullable().defaultsTo("")
     table.string("location").notNullable().defaultsTo("")
     table.float("latitude").notNullable().defaultsTo(0)
     table.float("longitude").notNullable().defaultsTo(0)
