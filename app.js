@@ -15,10 +15,12 @@ app.use(cors())
 const loginRoute = require("./src/routes/login")
 const signupRoute = require("./src/routes/signup")
 const postsRoute = require("./src/routes/posts")
+const commentsRoute = require("./src/routes/comments")
 
 app.use("/login", loginRoute)
 app.use("/signup", signupRoute)
 app.use("/posts", postsRoute)
+app.use("/comments", commentsRoute)
 
 app.use((err, req, res, next) => {
   const status = err.status || 500

@@ -1,9 +1,9 @@
 const express = require("express")
 const router = express.Router()
 const postsCtr = require("../controllers/posts")
-const verifyToken = require("../middleware/authorization")
+const authorization = require("../middleware/authorization")
 
 router.get("/", postsCtr.getAllPosts)
-router.post("/", verifyToken, postsCtr.createNewPost)
+router.post("/", authorization.checkForToken, authorization.parseToken, authorization.verifyToken, postsCtr.createNewPost)
 
 module.exports = router
