@@ -19,7 +19,7 @@ const createComment = async (body) => {
 
   if (!body.comment) errors.push("Comment is missing");
 
-  if (!newComment) {
+  if (errors.length > 0) {
     return {
       error: errors,
       status: 400,
