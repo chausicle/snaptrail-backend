@@ -20,7 +20,7 @@ const parseToken = (req, res, next) => {
 
 const verifyToken = (req, res, next) => {
   try {
-    const decoded = jwt.verify(req.token, TOKEN_SECRET);
+    const decoded = jwt.verify(req.token, process.env.AWESOME_SECRET);
     if (!decoded.loggedIn) {
       res.sendStatus(403);
       return;

@@ -1,10 +1,17 @@
-const knex = require("./db")
+const knex = require("./db");
 
 const getAllComments = () => {
   return knex("comments")
-    .select("*")
-}
+    .select("*");
+};
+
+const createComment = (body) => {
+  return knex("comments")
+    .insert(body)
+    .returning("*");
+};
 
 module.exports = {
-  getAllComments
-}
+  getAllComments,
+  createComment
+};
