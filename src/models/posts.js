@@ -13,6 +13,21 @@ const getAllPosts = async (body) => {
   return post
 }
 
+const getPostsByUserId = async (user_id) => {
+  const userPosts = await postQuery.getPostsByUserId(user_id)
+
+  if (!userPosts) {
+    return {
+      error: "Not found",
+      status: 404,
+      message: "That are no posts"
+    }
+  }
+  return userPosts
+}
+
+
+
 const createNewPost = async body => {
   const { user_id, image_url, description, location, latitude, longitude } = body
   if (user_id && image_url && description && location && latitude && longitude)
@@ -27,5 +42,6 @@ const createNewPost = async body => {
 
 module.exports = {
   getAllPosts,
+  getPostsByUserId,
   createNewPost
 }

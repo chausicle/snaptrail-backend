@@ -1,4 +1,5 @@
 const model = require("../models/posts");
+const decode = require("jwt-decode")
 
 const getAllPosts = async (req, res, next) => {
   const post = await model.getAllPosts(req.body)
@@ -7,6 +8,20 @@ const getAllPosts = async (req, res, next) => {
     } else {
       res.status(200).json(post)
     }
+}
+
+const getPostsByUserId = async (req, res, next) => {
+  const userPosts = await model.getPostsByUserId(req.params.id)
+  console.log('userPosts = ', userPosts);
+  if (userPosts.error) {
+    return next({
+      error: userPosts.error,
+      status: userPosts.status,
+      message: userPosts.message
+    })
+  }
+
+  res.status(200).json(userPosts)
 }
 
 const createNewPost = async (req, res, next) => {
@@ -24,5 +39,6 @@ const createNewPost = async (req, res, next) => {
 
 module.exports = {
   getAllPosts,
+  getPostsByUserId,
   createNewPost
 }
