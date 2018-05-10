@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
         {
           id: 1,
           user_id: 1,
-          image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB3MIm6EYD6KCdBLcDHzW1qyQ2ly0R65pIjPseS3gqwGNdvcyi",
+          image_url: "https://www.alltrails.com/api/alltrails/photos/11219583/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
           description: "Bernal Heights Park Trail is a 1 mile loop trail located near San Francisco, California that offers scenic views and is good for all skill levels.",
           location: "Bernal Heights Park Trail",
           latitude: 37.744385,
@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
         {
           id: 2,
           user_id: 1,
-          image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2LKy58Kv7GELztOibRckpAsH-rsd7RD9mA_HAOsbI-ITSmUA",
+          image_url: "https://www.alltrails.com/api/alltrails/photos/19854165/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
           description: "Rodeo Valley Trail To Miwok Trail Loop Via Coastal Trail is a 11.3 mile moderately trafficked loop trail located near Mill Valley, California that features beautiful wild flowers and is rated as difficult.",
           location: "Rodeo Valley Trail",
           latitude: 39.563354,
@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
         {
           id: 3,
           user_id: 2,
-          image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Glenwood_Canyon.jpg/300px-Glenwood_Canyon.jpg",
+          image_url: "https://www.alltrails.com/api/alltrails/photos/19683458/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
           description: "Glenwood Canyon: Riding the Interstate is a 15.9 mile heavily trafficked point-to-point trail located near Glenwood Springs, Colorado that features a river and is rated as moderate. The trail is primarily used for fishing, fly fishing, and road biking and is accessible year-round.",
           location: "Glenwood Canyon, Riding the Interstate",
           latitude: 39.563354 ,
@@ -34,7 +34,7 @@ exports.seed = function(knex, Promise) {
         {
           id: 4,
           user_id: 2,
-          image_url: "http://socalpulse.com/wp-content/uploads/2016/03/hiking-in-los-angeles-1024x660.jpg",
+          image_url: "https://www.alltrails.com/api/alltrails/photos/20326829/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
           description: "Runyon Canyon Trail is a 2.4 mile heavily trafficked loop trail located near West Hollywood, California that offers scenic views and is rated as moderate. The trail is primarily used for hiking, walking, trail running, and nature trips and is accessible year-round.",
           location: "Runyon Canyon Trail",
           latitude: 34.1102863,
@@ -43,7 +43,7 @@ exports.seed = function(knex, Promise) {
         {
           id: 5,
           user_id: 3,
-          image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoILKx2TtsmL-WZSk3WjA0qGiBQdW0CH7e3Elx5dcA82WE64uTpg",
+          image_url: "https://www.alltrails.com/api/alltrails/photos/20048966/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
           description: "Cowles Mountain Trail is a 2.9 mile heavily trafficked out and back trail located near San Diego, California that features beautiful wild flowers and is rated as moderate. The trail offers a number of activity options and is accessible year-round.",
           location: "Cowles Mountain Trail",
           latitude: 32.937199,
@@ -52,7 +52,7 @@ exports.seed = function(knex, Promise) {
         {
           id: 6,
           user_id: 3,
-          image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxjw2oQFWlScbmW8FN7KdC8sqvbUBYLosE9dAzrEeayl9D6fRu",
+          image_url: "https://www.alltrails.com/api/alltrails/photos/20394326/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
           description: "Mission Peak Loop from Stanford Avenue Staging Area is a 5.8 mile heavily trafficked loop trail located near Warm Springs District, California that features beautiful wild flowers and is rated as difficult. The trail offers a number of activity options and is accessible year-round.",
           location: "Mission Peak",
           latitude: 37.5124365,
