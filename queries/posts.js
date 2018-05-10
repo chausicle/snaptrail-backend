@@ -6,6 +6,12 @@ const getAllPosts = async () => {
     .orderBy("created_at", "desc")
 }
 
+const getPostsByUserId = async user_id => {
+  return await knex("posts")
+    .select("*")
+    .where({ user_id })
+}
+
 const createNewPost = async (body) => {
  const post = await knex("posts")
    .insert(body)
@@ -19,5 +25,6 @@ const createNewPost = async (body) => {
 
 module.exports = {
   getAllPosts,
+  getPostsByUserId,
   createNewPost
 }
