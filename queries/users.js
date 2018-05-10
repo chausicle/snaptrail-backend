@@ -8,7 +8,7 @@ const getAllUsers = async () => {
 const getUserById = async (id) => {
   return await knex("users")
     .select("id", "username", "email", "user_image")
-    .where("id", id)
+    .where({ id })
     .first()
 }
 
