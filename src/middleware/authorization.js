@@ -21,7 +21,7 @@ const parseToken = (req, res, next) => {
 const verifyToken = (req, res, next) => {
   try {
     const decoded = jwt.verify(req.token, process.env.AWESOME_SECRET);
-    if (!decoded.loggedIn || Number(decoded.sub.id) !== Number(req.params.id)) {
+    if (!decoded.loggedIn) {
       res.sendStatus(403);
       return;
     }
