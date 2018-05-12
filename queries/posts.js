@@ -7,9 +7,7 @@ const getAllPosts = async () => {
     .select("*")
     .orderBy("created_at", "desc")
     .then(posts => {
-      result = posts
-      console.log(result);
-      console.log(posts);
+      result = posts;
       return knex("users")
         .select(
           "users.id",
@@ -28,9 +26,28 @@ const getAllPosts = async () => {
 }
 
 const getPostsByUserId = async user_id => {
+  let result;
+
   return await knex("posts")
     .select("*")
     .where({ user_id })
+    .then(userPosts => {
+      result = userPosts;
+      return knex("users")
+        .select(
+          "users.id",
+          "users.email",
+          "users.username",
+          "users.user_image"
+        )
+        .then(users => {
+          userPosts.forEach((post, index) => {
+            console.log(result[index]);
+            result[index].user = users.find(user => user.id === post.user_id)
+          })
+          return result
+        })
+    })
 }
 
 const createNewPost = async (body) => {
