@@ -3,7 +3,7 @@ const decode = require("jwt-decode")
 
 const getAllPosts = async (req, res, next) => {
   const post = await model.getAllPosts(req.body)
-    if (!post) {
+    if (post.error) {
       res.status(400).json(post)
     } else {
       res.status(200).json(post)

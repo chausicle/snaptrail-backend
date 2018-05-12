@@ -1,9 +1,30 @@
 const knex = require("./db");
 
 const getAllPosts = async () => {
-  return await knex("posts")
+  let result;
+
+  return knex("posts")
     .select("*")
     .orderBy("created_at", "desc")
+    .then(posts => {
+      result = posts
+      console.log(result);
+      console.log(posts);
+      return knex("users")
+        .select(
+          "users.id",
+          "users.email",
+          "users.username",
+          "users.user_image"
+        )
+        .then(users => {
+          posts.forEach((post, index) => {
+            console.log(result[index]);
+            result[index].user = users.find(user => user.id === post.user_id)
+          })
+          return result
+        })
+    })
 }
 
 const getPostsByUserId = async user_id => {

@@ -3,7 +3,9 @@ const postQuery = require("../../queries/posts");
 const getAllPosts = async (body) => {
   const post = await postQuery.getAllPosts()
 
-  if (!post) {
+console.log('WAHT IS THIS POOOOOST ==== ', post);
+
+  if (post.length === 0) {
     return {
       error: "Not found",
       status: 404,
@@ -25,8 +27,6 @@ const getPostsByUserId = async (user_id) => {
   }
   return userPosts
 }
-
-
 
 const createNewPost = async body => {
   const { user_id, image_url, description, location, latitude, longitude } = body
