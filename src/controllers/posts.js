@@ -26,7 +26,6 @@ const getPostsByUserId = async (req, res, next) => {
 
 const createNewPost = async (req, res, next) => {
   const post = await model.createNewPost(req.body)
-
   if (post.error) {
     return next({
       status: post.status,

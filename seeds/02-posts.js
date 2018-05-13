@@ -7,20 +7,21 @@ exports.seed = function(knex, Promise) {
         {
           id: 1,
           user_id: 1,
-          image_url: "https://www.alltrails.com/api/alltrails/photos/11219583/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
-          description: "Bernal Heights Park Trail is a 1 mile loop trail located near San Francisco, California that offers scenic views and is good for all skill levels.",
-          location: "Bernal Heights Park Trail",
-          latitude: 37.744385,
-          longitude: -122.417046
+          image_url: "https://www.alltrails.com/api/alltrails/photos/19488896/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+          description: "Grinnell Glacier Trail is a 9.7 mile heavily trafficked out and back trail located near East Glacier Park, Montana that features a lake and is rated as moderate. The trail offers a number of activity options and is best used from July until September.",
+          location: "Grinnell Glacier Trail",
+          latitude: 48.69657,
+          longitude: -113.71813
         },
         {
           id: 2,
           user_id: 1,
-          image_url: "https://www.alltrails.com/api/alltrails/photos/19854165/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
-          description: "Rodeo Valley Trail To Miwok Trail Loop Via Coastal Trail is a 11.3 mile moderately trafficked loop trail located near Mill Valley, California that features beautiful wild flowers and is rated as difficult.",
-          location: "Rodeo Valley Trail",
-          latitude: 39.563354,
-          longitude: -107.332993
+          image_url: "https://www.alltrails.com/api/alltrails/photos/19583025/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+          description: "South Kaibab Trail to Cedar Ridge is a 3.1 mile moderately trafficked out and back trail located near Grand Canyon, Arizona that features beautiful wild flowers and is rated as difficult. The trail offers a number of activity options and is best used from March until November. Horses are also able to use this trail.",
+          location: "South Kaibab Trail ",
+          latitude: 36.056595,
+          longitude: -112.125092
+
         },
         {
           id: 3,
@@ -52,11 +53,11 @@ exports.seed = function(knex, Promise) {
         {
           id: 6,
           user_id: 3,
-          image_url: "https://www.alltrails.com/api/alltrails/photos/20394326/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
-          description: "Mission Peak Loop from Stanford Avenue Staging Area is a 5.8 mile heavily trafficked loop trail located near Warm Springs District, California that features beautiful wild flowers and is rated as difficult. The trail offers a number of activity options and is accessible year-round.",
-          location: "Mission Peak",
-          latitude: 37.5124365,
-          longitude: -121.8805126
+          image_url: "https://www.alltrails.com/api/alltrails/photos/11100541/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+          description: "Multnomah Falls Trail [CLOSED] is a 1.8 mile heavily trafficked out and back trail located near Bridal Veil, Oregon that features a waterfall and is rated as moderate. The trail offers a number of activity options and is best used from March until November. Dogs are also able to use this trail but must be kept on leash.",
+          location: "Multnomah Falls Trail",
+          latitude: 45.57589,
+          longitude: -122.11510
         }
       ]);
     })
