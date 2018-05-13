@@ -3,8 +3,6 @@ const postQuery = require("../../queries/posts");
 const getAllPosts = async (body) => {
   const post = await postQuery.getAllPosts()
 
-console.log('WAHT IS THIS POOOOOST ==== ', post);
-
   if (post.length === 0) {
     return {
       error: "Not found",
