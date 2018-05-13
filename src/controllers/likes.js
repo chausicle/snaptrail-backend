@@ -1,20 +1,20 @@
 const model = require("../models/likes");
-const errorHandler = require("../middleware/errorHandler");
+const decode = require("jwt-decode");
 
 const getAllLikes = async (req, res, next) => {
   const likes = await model.getAllLikes();
 
-  if (likes.error) return next(...error)
+  if (likes.error) return next({...likes})
 
   res.status(200).json(likes);
 };
 
 const createLike = async (req, res, next) => {
-  const newLike = await model.createLike();
+  const newLike = await model.createLike(req.body);
 
-  if (like.error) return next(...error);
+  if (newLike.error) return next({...newLike});
 
-  res.status(201).json(like);
+  res.status(201).json(newLike);
 };
 
 const deleteLike = async (req, res, next) => {
