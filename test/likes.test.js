@@ -26,7 +26,7 @@ describe("API likes routes", () => {
   describe("#GET /likes", () => {
     it("Should return all likes", (done) => {
       chai.request(server)
-        .get("/login")
+        .get("/likes")
         .end((error, res) => {
           console.log('\n');
           console.log(res.body);
@@ -36,6 +36,25 @@ describe("API likes routes", () => {
           res.body[0].should.have.property("id")
           res.body[0].should.have.property("post_id")
           res.body[0].should.have.property("user_id")
+          done()
+        })
+    })
+  })
+
+  describe("#POST /likes", () => {
+    it("Should post a like with token", (done) => {
+      chai.request(server)
+        .post("/likes")
+        .set("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjEsInVzZXIiOiJjaGF1c2ljbGUifSwibG9nZ2VkSW4iOnRydWUsImV4cCI6MTUyNjE5MjAwMy4yNDgsImlhdCI6MTUyNjE4MjAwM30.p8MZ9rYxSbiTNhWxDgbcUbL-z3tFznZ098WitI2yqeQ")
+        .end((error, res) => {
+          console.log('\n');
+          console.log(res.body);
+          console.log('\n');
+          res.should.have.status(201)
+          res.body.should.be.a("object")
+          res.body.should.have.property("id")
+          res.body.should.have.property("post_id")
+          res.body.should.have.property("user_id")
           done()
         })
     })

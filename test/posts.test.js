@@ -49,7 +49,7 @@ describe("API posts routes", () => {
     it("Should make a post with token in authorization headers", (done) => {
       chai.request(server)
         .post("/posts")
-        .set("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjEsInVzZXIiOiJjaGF1c2ljbGUifSwibG9nZ2VkSW4iOnRydWUsImV4cCI6MTUyNjE3Nzk0Mi43NTEsImlhdCI6MTUyNjE2Nzk0Mn0.rq1l99koHajXJDVyrdUgH45ZlK6SsrKaY4htfgY0hy4")
+        .set("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjEsInVzZXIiOiJjaGF1c2ljbGUifSwibG9nZ2VkSW4iOnRydWUsImV4cCI6MTUyNjE5MjAwMy4yNDgsImlhdCI6MTUyNjE4MjAwM30.p8MZ9rYxSbiTNhWxDgbcUbL-z3tFznZ098WitI2yqeQ")
         .send({
           "user_id": 2,
           "description": "Little Si Trail welcomes hikers with a thigh-burning incline, but don’t be deterred. After a few winding switchbacks, the trail will level out and give you a break. And after the final uphill section, which can be a bit tiring, you’ll be rewarded with spectacular views of tree tops across the valley. Little Si Trail welcomes hikers with a thigh-burning incline, but don’t be deterred. After a few winding switchbacks, the trail will level out and give you a break. And after the final uphill section, which can be a bit tiring, you’ll be rewarded with spectacular views of tree tops across the valley. ",

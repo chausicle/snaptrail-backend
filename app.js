@@ -17,12 +17,14 @@ const signupRoute = require("./src/routes/signup");
 const postsRoute = require("./src/routes/posts");
 const commentsRoute = require("./src/routes/comments");
 const usersRoute = require("./src/routes/users");
+const likesRoute = require("./src/routes/likes");
 
 app.use("/login", loginRoute);
 app.use("/signup", signupRoute);
 app.use("/posts", postsRoute);
 app.use("/comments", commentsRoute);
 app.use("/users", usersRoute);
+app.use("/likes", likesRoute);
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;
