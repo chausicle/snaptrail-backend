@@ -13,7 +13,7 @@ const getLikeByUserId = (post_id, user_id) => {
     .first();
 };
 
-const createLike = async (body) => {
+const createLike = async body => {
   const alreadyLiked = await getLikeByUserId(body.post_id, body.user_id);
 
   if (alreadyLiked === undefined) {
@@ -28,8 +28,14 @@ const createLike = async (body) => {
   }
 };
 
-const deleteLike = () => {
+const deleteLike = async id => {
+  const deletedLike = await knex("likes")
+    .where({ id })
+    .returning("*")
+    .del();
 
+  if (deletedLike[0].id == id) return true;
+  else return false;
 };
 
 module.exports = {

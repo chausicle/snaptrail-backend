@@ -28,9 +28,6 @@ describe("API likes routes", () => {
       chai.request(server)
         .get("/likes")
         .end((error, res) => {
-          console.log('\n');
-          console.log(res.body);
-          console.log('\n');
           res.should.have.status(200)
           res.body.should.be.a("array")
           res.body[0].should.have.property("id")
@@ -42,7 +39,7 @@ describe("API likes routes", () => {
   })
 
   describe("#POST /likes", () => {
-    it("Should post a like with token", (done) => {
+    it("Should post a like with token in header", (done) => {
       chai.request(server)
         .post("/likes")
         .set("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjEsInVzZXIiOiJjaGF1c2ljbGUifSwibG9nZ2VkSW4iOnRydWUsImV4cCI6MTUyNjE5MjAwMy4yNDgsImlhdCI6MTUyNjE4MjAwM30.p8MZ9rYxSbiTNhWxDgbcUbL-z3tFznZ098WitI2yqeQ")
@@ -51,9 +48,6 @@ describe("API likes routes", () => {
           user_id: 1
         })
         .end((error, res) => {
-          console.log('\n');
-          console.log(res.body);
-          console.log('\n');
           res.should.have.status(201)
           res.body.should.be.a("array")
           res.body[0].should.be.a("object")
@@ -63,7 +57,7 @@ describe("API likes routes", () => {
           done()
         })
     })
-    it("Should not post a like if the post has that like from that user already: A user should only be able to like once per post", (done) => {
+    it("Should not post a like if the post has that like from that user already: A user should only be able to like once per post", done => {
       chai.request(server)
         .post("/likes")
         .set("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjEsInVzZXIiOiJjaGF1c2ljbGUifSwibG9nZ2VkSW4iOnRydWUsImV4cCI6MTUyNjE5MjAwMy4yNDgsImlhdCI6MTUyNjE4MjAwM30.p8MZ9rYxSbiTNhWxDgbcUbL-z3tFznZ098WitI2yqeQ")
@@ -72,13 +66,31 @@ describe("API likes routes", () => {
           user_id: 1
         })
         .end((error, res) => {
-          console.log('\n');
-          console.log(res.body);
-          console.log('\n');
           res.should.have.status(400)
           res.body.error.should.be.a("object")
           done()
         })
+    })
+  })
+
+  describe("#DELETE /likes", () => {
+    it("Should delete a like with token in header", done => {
+      chai.request(server)
+        .delete("/likes/1")
+        .set("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjEsInVzZXIiOiJjaGF1c2ljbGUifSwibG9nZ2VkSW4iOnRydWUsImV4cCI6MTUyNjE5MjAwMy4yNDgsImlhdCI6MTUyNjE4MjAwM30.p8MZ9rYxSbiTNhWxDgbcUbL-z3tFznZ098WitI2yqeQ")
+        .end((error, res) => {
+          res.should.have.status(204);
+          done()
+        })
+    })
+    it("Should not delete a like with invalid token in header", done => {
+      chai.request(server)
+      .delete("/likes/1")
+      .set("authorization", "incorrect-token")
+      .end((error, res) => {
+        res.should.have.status(403);
+        done()
+      })
     })
   })
 })

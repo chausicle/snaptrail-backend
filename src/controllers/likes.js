@@ -18,7 +18,11 @@ const createLike = async (req, res, next) => {
 };
 
 const deleteLike = async (req, res, next) => {
+  const result = await model.deleteLike(req.params.id);
 
+  if (result.error) return next({...result});
+
+  res.sendStatus(204);
 };
 
 module.exports = {
