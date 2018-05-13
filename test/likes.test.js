@@ -8,7 +8,7 @@ const chai = require("chai")
 chai.use(chaiHttp)
 chai.use(require("chai-as-promised"))
 
-describe("API login routes", () => {
+describe("API likes routes", () => {
   beforeEach(() => {
     const tmpConnection = require("knex")({
       client: "pg",
@@ -23,30 +23,19 @@ describe("API login routes", () => {
       .catch(() => console.log("Migrations or seeds failed."))
   })
 
-  describe("#POST /login", () => {
-    it("Should return a token with correct credentials", (done) => {
+  describe("#GET /likes", () => {
+    it("Should return all likes", (done) => {
       chai.request(server)
-        .post("/login")
-        .send({
-          username: "chausicle",
-          password: "iamjustin"
-        })
+        .get("/login")
         .end((error, res) => {
-          res.headers.should.have.property("authorization")
-          res.headers.authorization.should.be.a("string")
-          done()
-        })
-    })
-
-    it("Should return status 403 with incorrect credentials", (done) => {
-      chai.request(server)
-        .post("/login")
-        .send({
-          username: "chausicle",
-          password: "wrongpassword"
-        })
-        .end((error, res) => {
-          res.should.have.status(403)
+          console.log('\n');
+          console.log(res.body);
+          console.log('\n');
+          res.should.have.status(200)
+          res.body.should.be.a("array")
+          res.body[0].should.have.property("id")
+          res.body[0].should.have.property("post_id")
+          res.body[0].should.have.property("user_id")
           done()
         })
     })
