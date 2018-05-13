@@ -17,7 +17,6 @@ const getAllPosts = async () => {
         )
         .then(users => {
           posts.forEach((post, index) => {
-            console.log(result[index]);
             result[index].user = users.find(user => user.id === post.user_id)
           })
           return result
@@ -42,7 +41,6 @@ const getPostsByUserId = async user_id => {
         )
         .then(users => {
           userPosts.forEach((post, index) => {
-            console.log(result[index]);
             result[index].user = users.find(user => user.id === post.user_id)
           })
           return result

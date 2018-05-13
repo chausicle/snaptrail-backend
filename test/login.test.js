@@ -8,7 +8,7 @@ const chai = require("chai")
 chai.use(chaiHttp)
 chai.use(require("chai-as-promised"))
 
-describe("API Routes", () => {
+describe("API login routes", () => {
   beforeEach(() => {
     const tmpConnection = require("knex")({
       client: "pg",
