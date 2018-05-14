@@ -12,7 +12,14 @@ const getUserById = async (id) => {
     .first()
 }
 
+const updateUserProfileImage = async (id, user_image) => {
+  return await knex("users")
+    .where({ id })
+    .update({ user_image }, ["id", "email", "username", "user_image"])
+}
+
 module.exports = {
   getAllUsers,
-  getUserById
+  getUserById,
+  updateUserProfileImage
 }
