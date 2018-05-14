@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
           username: "Robson Farias",
           email: "fariasrobson.rf@gmail.com",
           password: "$2a$10$y2MiAwqr5Y0oeQ1YpkcRFuCxHM029Xf9K6QjvtCNsy3xe50wL4xaO",
-          user_image: "https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/c0.0.160.160/p160x160/940941_991363337597278_2788147579228004851_n.jpg?_nc_cat=0&oh=a81e100421008e1cb0b636a59ccc6fd0&oe=5B9571DA"
+          user_image: "https://media.licdn.com/dms/image/C5603AQEVajqtwsIPFg/profile-displayphoto-shrink_200_200/0?e=1531958400&v=beta&t=nEsn7SwI7RPzmYSi2xj8JUQUdWoo7vn7qVwuaE7GchM"
         },
         {
           id: 3,

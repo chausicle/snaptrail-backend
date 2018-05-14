@@ -44,11 +44,11 @@ exports.seed = function(knex, Promise) {
         {
           id: 5,
           user_id: 3,
-          image_url: "https://www.alltrails.com/api/alltrails/photos/20048966/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
-          description: "Cowles Mountain Trail is a 2.9 mile heavily trafficked out and back trail located near San Diego, California that features beautiful wild flowers and is rated as moderate. The trail offers a number of activity options and is accessible year-round.",
-          location: "Cowles Mountain Trail",
-          latitude: 32.937199,
-          longitude: -117.127174
+          image_url: "https://www.alltrails.com/api/alltrails/photos/11672451/image?size=extra_large&api_key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+          description: "Mount Ellinor Trail is a 5.3 mile heavily trafficked loop trail located near Lake Cushman, Washington that features a river and is rated as difficult. The trail offers a number of activity options and is best used from March until November. Dogs are also able to use this trail.",
+            location: "Mount Ellinor Trail",
+          latitude: 47.5220351,
+          longitude: -123.2604403
         },
         {
           id: 6,
