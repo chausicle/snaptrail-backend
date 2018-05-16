@@ -20,6 +20,8 @@ const getUserById = async (req, res, next) => {
 }
 
 const updateUserProfileImage = async (req, res, next) => {
+  console.log(req.body.user_image)
+  console.log(req.body)
   const user = await model.updateUserProfileImage(req.params.id, req.body.user_image);
 
   if (user.error) return next({...user});
