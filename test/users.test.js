@@ -43,7 +43,9 @@ const chai = require("chai")
           it("Should update a user profile image with token in authorization headers", (done) => {
             chai.request(server)
               .patch("/users/3")
-              .set("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjQsInVzZXIiOiJUaGUgRmlzaCBNYW4ifSwibG9nZ2VkSW4iOnRydWUsImV4cCI6MTUyNjM0MzU0OS4wNzMsImlhdCI6MTUyNjMzMzU0OX0.RWi5JdF2G8zUIf8ehsk_czYEX4oI_WZ8RVhYb2yEah4")
+              .set("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjQsInVzZ
+              XIiOiJUaGUgRmlzaCBNYW4ifSwibG9nZ2VkSW4iOnRydWUsImV4cCI6MTUyNjM0MzU0OS4wNzMsImlhdCI6MTU
+              yNjMzMzU0OX0.RWi5JdF2G8zUIf8ehsk_czYEX4oI_WZ8RVhYb2yEah4")
               .send({
                 "user_image": "https://encrypted-tbn0.gstatic.com/images\\?q=tbn:ANd9GcTkAJEfy9JG6lxBYx4y-akyZmcTl2sid9Bqxda3332cPNomiwuI"
               })

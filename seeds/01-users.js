@@ -27,10 +27,10 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 4,
-          username: "The Fish Man",
-          email: "thefishman@gmail.com",
+          username: "Chico Doido",
+          email: "chicodoido@gmail.com",
           password: "$2a$10$y2MiAwqr5Y0oeQ1YpkcRFuCDc8z5ly4OQS6mr/4qh5lYo5DU7ohWG",
-          user_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_5Fcteo5_a1dfqKsZMHpbUdrrDIMKkh-t-3iGLwQ7681J01x6oA"
+          user_image: "http://4.bp.blogspot.com/-GYlx405wwY8/TZc3QiE2d0I/AAAAAAAABpk/w47PNXgSI2A/s400/NEONISMAICSON+SILVA+DE+OLIVEIRA+-+trafico+de+droga.JPG"
         }
       ]);
     })
