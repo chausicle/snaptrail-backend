@@ -14,28 +14,36 @@ const getLikeByUserId = (post_id, user_id) => {
 };
 
 const createLike = async body => {
-  const alreadyLiked = await getLikeByUserId(body.post_id, body.user_id);
+  try {
+    const alreadyLiked = await getLikeByUserId(body.post_id, body.user_id);
 
-  if (alreadyLiked === undefined) {
-    const newLike = await knex("likes")
-    .insert(body)
-    .returning("*");
+    if (alreadyLiked === undefined) {
+      const newLike = await knex("likes")
+      .insert(body)
+      .returning("*");
 
-    if (!newLike) return { error: "Could not post the like" };
-    else return newLike;
-  } else {
-    return { error: "User has already liked this post" };
+      if (!newLike) return { error: "Could not post the like" };
+      else return newLike;
+    } else {
+      return { error: "User has already liked this post" };
+    }
+  } catch(error) {
+    console.log(error);
   }
 };
 
 const deleteLike = async id => {
-  const deletedLike = await knex("likes")
+  try {
+    const deletedLike = await knex("likes")
     .where({ id })
     .returning("*")
     .del();
 
-  if (deletedLike[0].id == id) return true;
-  else return false;
+    if (deletedLike[0].id == id) return true;
+    else return false;
+  } catch(error) {
+    console.log(error);
+  }
 };
 
 module.exports = {
