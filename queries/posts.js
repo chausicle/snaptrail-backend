@@ -34,6 +34,7 @@ const getPostsByUserId = async user_id => {
 
     return await knex("posts")
     .select("*")
+    .orderBy("created_at", "desc")
     .where({ user_id })
     .then(userPosts => {
       result = userPosts;
