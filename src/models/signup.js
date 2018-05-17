@@ -1,35 +1,39 @@
 const signup = require("../../queries/signup")
 
 const createAccount = async (body) => {
-  const user_image = "http://groups.commonfloor.com/blog/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"
-  const username = body.username;
-  const email = body.email;
-  const password = body.password
-  const usernameRes = await signup.checkUsernameExist(username);
-  const emailRes = await signup.checkEmailExist(email);
+  try {
+    const user_image = "http://groups.commonfloor.com/blog/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"
+    const username = body.username;
+    const email = body.email;
+    const password = body.password
+    const usernameRes = await signup.checkUsernameExist(username);
+    const emailRes = await signup.checkEmailExist(email);
 
 
-  if (usernameRes) {
-    return {
-      error: "Bad request",
-      status: 400,
-      message: "User already exist!"
+    if (usernameRes) {
+      return {
+        error: "Bad request",
+        status: 400,
+        message: "User already exist!"
+      }
+    } else if (emailRes){
+      return {
+        error: "Bad request",
+        status: 400,
+        message: "Email already exist!"
+      }
     }
-  } else if (emailRes){
-    return {
-      error: "Bad request",
-      status: 400,
-      message: "Email already exist!"
-    }
-  }
 
-  if (!usernameRes && !emailRes) {
-    const signupRes = await signup.createAccount(user_image, username, email, password);
-    console.log('signup response in model = ', signupRes[0]);
-    return {
-      username: signupRes[0].username,
-      message: "Account Created"
+    if (!usernameRes && !emailRes) {
+      const signupRes = await signup.createAccount(user_image, username, email, password);
+      console.log('signup response in model = ', signupRes[0]);
+      return {
+        username: signupRes[0].username,
+        message: "Account Created"
+      }
     }
+  } catch(error) {
+    console.log(error);
   }
 }
 

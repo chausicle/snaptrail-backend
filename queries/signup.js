@@ -2,44 +2,56 @@ const knex = require('./db');
 const bcrypt = require('bcryptjs');
 
 const checkUsernameExist = async (username) => {
-  console.log('username is ', username);
+  try {
+    console.log('username is ', username);
 
-  const user = await knex("users")
+    const user = await knex("users")
     .select("*")
     .where({ username })
     .first()
 
-  if (user) {
-    console.log("User ====>", user );
-    return true
-  }
+    if (user) {
+      console.log("User ====>", user );
+      return true
+    }
 
-  return false
+    return false;
+  } catch(error) {
+    console.log(error);
+  }
 }
 
 const checkEmailExist = async (email) => {
-  console.log('email is ', email);
+  try {
+    console.log('email is ', email);
 
-  const user = await knex("users")
+    const user = await knex("users")
     .select("*")
     .where({ email })
     .first()
 
-  if (user) {
-    console.log("email ====>", email );
-    return true
-  }
+    if (user) {
+      console.log("email ====>", email );
+      return true
+    }
 
-  return false
+    return false;
+  } catch(error) {
+    console.log(error);
+  }
 }
 
 const createAccount = async (user_image, username, email, password) => {
-  const hashedPassword = hash(password, 10)
-  console.log('hashed', hashedPassword);
-  return knex('users')
-  .insert({username, email, password: hashedPassword, user_image})
-  .into('users')
-  .returning('*')
+  try {
+    const hashedPassword = hash(password, 10)
+    console.log('hashed', hashedPassword);
+    return knex('users')
+    .insert({username, email, password: hashedPassword, user_image})
+    .into('users')
+    .returning('*');
+  } catch(error) {
+    console.log(error);
+  }
 }
 
 const hash = (password, saltRounds) => {

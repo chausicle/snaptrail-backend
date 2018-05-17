@@ -1,21 +1,33 @@
 const knex = require("./db");
 
 const getAllUsers = async () => {
-  return await knex("users")
-    .select("id", "username", "email", "user_image")
+  try {
+    return await knex("users")
+    .select("id", "username", "email", "user_image");
+  } catch(error) {
+    console.log(error);
+  }
 }
 
 const getUserById = async (id) => {
-  return await knex("users")
+  try {
+    return await knex("users")
     .select("id", "username", "email", "user_image")
     .where({ id })
-    .first()
+    .first();
+  } catch(error) {
+    console.log(error);
+  }
 }
 
 const updateUserProfileImage = async (id, user_image) => {
-  return await knex("users")
+  try {
+    return await knex("users")
     .where({ id })
-    .update({ user_image }, ["id", "email", "username", "user_image"])
+    .update({ user_image }, ["id", "email", "username", "user_image"]);
+  } catch(error) {
+    console.log(error);
+  }
 }
 
 module.exports = {
