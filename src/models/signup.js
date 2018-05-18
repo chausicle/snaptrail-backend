@@ -26,7 +26,7 @@ const createAccount = async (body) => {
 
     if (!usernameRes && !emailRes) {
       const signupRes = await signup.createAccount(user_image, username, email, password);
-
+      delete signupRes[0].password
       console.log('signup response in model = ', signupRes[0]);
       return {
         id: signupRes[0].id,

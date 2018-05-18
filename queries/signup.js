@@ -48,7 +48,7 @@ const createAccount = async (user_image, username, email, password) => {
     return knex('users')
     .insert({username, email, password: hashedPassword, user_image})
     .into('users')
-    .returning('id', 'username', 'email', 'user_image');
+    .returning('*');
   } catch(error) {
     console.log(error);
   }
