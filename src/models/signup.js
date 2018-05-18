@@ -26,10 +26,10 @@ const createAccount = async (body) => {
 
     if (!usernameRes && !emailRes) {
       const signupRes = await signup.createAccount(user_image, username, email, password);
-      
+
       console.log('signup response in model = ', signupRes[0]);
       return {
-        id: signupRes[0].id
+        id: signupRes[0].id,
         username: signupRes[0].username,
         email: signupRes[0].email,
         user_image: signupRes[0].user_image
