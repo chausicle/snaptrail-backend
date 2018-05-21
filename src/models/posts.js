@@ -52,7 +52,6 @@ const createNewPost = async body => {
 
 const deletePost = async (id, user_id) => {
   const result = await postQuery.deletePost(id, user_id)
-  console.log("RESult", result);
 
   if (!result) return {
     error: "Bad Request",
