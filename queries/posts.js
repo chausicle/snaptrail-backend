@@ -71,9 +71,18 @@ const createNewPost = async (body) => {
   }
 }
 
+const deletePost = async (id, user_id) => {
+  return await knex("posts")
+    .select("*")
+    .where({ id })
+    .andWhere({ user_id })
+    .del()
+}
+
 
 module.exports = {
   getAllPosts,
   getPostsByUserId,
-  createNewPost
+  createNewPost,
+  deletePost
 }

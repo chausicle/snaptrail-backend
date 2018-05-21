@@ -50,8 +50,17 @@ const createNewPost = async (req, res, next) => {
   }
 }
 
+const deletePost = async (req,res, next) => {
+  const post = await model.deletePost(req.params.id, req.body.user_id)
+  if (post.error) {
+    return next({ ...post })
+  }
+  res.status(204).json(post)
+}
+
 module.exports = {
   getAllPosts,
   getPostsByUserId,
-  createNewPost
+  createNewPost,
+  deletePost
 }
