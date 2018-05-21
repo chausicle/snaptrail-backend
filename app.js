@@ -19,6 +19,8 @@ const commentsRoute = require("./src/routes/comments");
 const usersRoute = require("./src/routes/users");
 const likesRoute = require("./src/routes/likes");
 
+if (process.env.NODE_ENV === "production")  app.use(express.static("SnapTrails.surge.sh"));
+
 app.use("/login", loginRoute);
 app.use("/signup", signupRoute);
 app.use("/posts", postsRoute);
