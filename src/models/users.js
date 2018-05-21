@@ -9,7 +9,7 @@ const getAllUsers = async (body) => {
         error: "Not found",
         status: 404,
         message: "That are no users"
-      }
+      };
     }
     return user;
   } catch(error) {
@@ -26,7 +26,7 @@ const getUserById = async (id) => {
         error: "Not found",
         status: 404,
         message: `User id ${id} does not exist`
-      }
+      };
     }
     return user;
   } catch(error) {
@@ -37,7 +37,6 @@ const getUserById = async (id) => {
 const updateUserProfileImage = async (id, user_image) => {
   try {
     const error = [];
-    console.log('USER_IMAGE ====>>', user_image);
 
     if (!user_image) error.push("missing user");
 
@@ -49,7 +48,6 @@ const updateUserProfileImage = async (id, user_image) => {
       };
     } else {
       let user = await usersQuery.updateUserProfileImage(id, user_image);
-      console.log("UESR IN USERS MODELS ======", user);
       return user;
     }
   } catch(error) {
