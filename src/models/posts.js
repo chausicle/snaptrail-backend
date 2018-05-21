@@ -38,8 +38,21 @@ const createNewPost = async body => {
     }
 }
 
+const deletePost = async (id, user_id) => {
+  const result = await postQuery.deletePost(id, user_id)
+  console.log("RESult", result);
+
+  if (!result) return {
+    error: "Bad Request",
+    status: 400,
+    message: `Could not delete post id ${id}`
+  }
+  return result
+}
+
 module.exports = {
   getAllPosts,
   getPostsByUserId,
-  createNewPost
+  createNewPost,
+  deletePost
 }
