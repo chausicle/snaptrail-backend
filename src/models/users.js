@@ -34,6 +34,23 @@ const getUserById = async (id) => {
   }
 }
 
+const getuserByToken = async (token) => {
+  try {
+    const user = await usersQuery.getuserByToken(id);
+
+    if(!user) {
+      return {
+        error: "Not found",
+        status: 404,
+        message: `User does not exist`
+      };
+    }
+    return user;
+  } catch(error) {
+    console.log(error);
+  }
+}
+
 const updateUserProfileImage = async (id, user_image) => {
   try {
     const error = [];
@@ -58,5 +75,6 @@ const updateUserProfileImage = async (id, user_image) => {
 module.exports = {
   getAllUsers,
   getUserById,
+  getuserByToken,
   updateUserProfileImage
 }
