@@ -3,10 +3,6 @@ const model = require("../models/login");
 const checkLogin = async (req, res, next) => {
   try {
     const { username, password } = req.body
-    console.log("req = ", req);
-    console.log("req.body = ", req.body);
-    console.log("username from android = ", username);
-    console.log("password from android = ", password);
     const token = await model.checkLogin(username, password)
 
     if (token.error) {
